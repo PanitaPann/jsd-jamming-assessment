@@ -10,7 +10,7 @@ import Spotify from '../../utils/Spotify';
 function App() {
 
   const [searchResults, setSearchResults] = useState ([]);
-  const [playlistName, setPlaylistName] = useState ("My Playlist");
+  const [playlistName, setPlaylistName] = useState ("My playlist");
   const [playlistTracks, setPlaylistTracks] = useState ([]);
   
   useEffect(() => {
@@ -36,18 +36,16 @@ function App() {
   }
 
   const updatePlaylistName  = (name) => {
-    setPlaylistName ('name')
+    setPlaylistName (name);
   }
 
   const savePlaylist = () => {
-    const trackURIs = setPlaylistTracks.map(track => track.uri);
-    Spotify.savePlaylist({playlistName}, trackURIs).then(() => {
-      setPlaylistName({
-        playlistName: 'New Playlist',
-        playlistTracks: []
-
+    const trackURIs = playlistTracks.map(track => track.uri);
+    // const trackURIs = playlistTracks.uri;
+    Spotify.savePlaylist(playlistName, trackURIs).then(() => {
+      setPlaylistName ('My playlist');
+      setPlaylistTracks ([]);
       })
-    })
   }
 
   const search = (term) => {

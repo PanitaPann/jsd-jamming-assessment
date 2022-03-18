@@ -13,7 +13,7 @@ function Track(props) {
   }
 
   const addTrack = () => {
-      props.onAdd (props.Track)
+      props.onAdd (props.track)
   }
 
   const removeTrack = () => {

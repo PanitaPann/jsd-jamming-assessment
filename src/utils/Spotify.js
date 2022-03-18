@@ -2,7 +2,8 @@
 
 const clientId = '9c2f06081395413b94b990399bcee82d';
 
-const redirectUri = 'http://localhost:3000/';
+// const redirectUri = 'http://localhost:3000/';
+const redirectUri = 'http://addsongtoplaylist.surge.sh/';
 const spotifyUrl = `https://accounts.spotify.com/authorize?response_type=token&scope=playlist-modify-public&client_id=${clientId}&redirect_uri=${redirectUri}`;
 let accessToken = undefined;
 let expiresIn = undefined;
@@ -72,7 +73,8 @@ const Spotify = {
             Authorization: `Bearer ${accessToken}`,
           },
           body: JSON.stringify({
-            uris: trackIds.map((id) => 'spotify:track:'.concat(id)),
+            uris: trackIds
+            // uris: trackIds.map((id) => 'spotify:track:'.concat(id)),
           }),
         });
       }
